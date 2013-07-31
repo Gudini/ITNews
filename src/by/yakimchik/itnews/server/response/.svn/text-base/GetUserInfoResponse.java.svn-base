@@ -1,0 +1,106 @@
+package ru.actsystems.job4all.server.response;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ru.actsystems.job4all.server.Tags;
+
+public class GetUserInfoResponse {
+	
+	private static HashMap<String, String> info;
+	
+	private static String[] professionsList;
+	private static String[] unwantedRolesList;
+	
+	private static JSONObject json;
+	
+	public static void parse(String response) throws JSONException
+	{
+		info = new HashMap<String, String>();
+		
+		//professionsList = new ArrayList<String>();
+		//unwantedRolesList = new ArrayList<String>();
+		
+		json = new JSONObject(response);
+		
+		JSONObject result_object = json.getJSONObject(Tags.RESULT);
+		
+		String userId = result_object.getString(Tags.USER_ID);
+		String email = result_object.getString(Tags.EMAIL);
+		String name = result_object.getString(Tags.NAME);
+		String surname = result_object.getString(Tags.SURNAME);
+		String gender = result_object.getString(Tags.GENDER);
+		String postalCode = result_object.getString(Tags.POSTAL_CODE);
+		String city = result_object.getString(Tags.CITY);
+		String street = result_object.getString(Tags.STREET);
+		String house = result_object.getString(Tags.HOUSE);
+		String country = result_object.getString(Tags.COUNTRY);
+		String phoneCode = result_object.getString(Tags.PHONE_CODE);
+		String phoneNumber = result_object.getString(Tags.PHONE_NUMBER);
+		
+		JSONArray professions_array = result_object.getJSONArray(Tags.PROFESSIONS);
+		JSONArray unwantedRoles_array = result_object.getJSONArray(Tags.UNWANTED_ROLES);
+		
+		professionsList = professions_array.toString().replace("[", "").replace("]", "").split(",");
+		unwantedRolesList = unwantedRoles_array.toString().replace("[", "").replace("]", "").split(",");
+		
+		if(professionsList.length==1 && professionsList[0]==""){
+			professionsList = new String[0];
+		}
+		
+		if(unwantedRolesList.length==1 && unwantedRolesList[0]==""){
+			unwantedRolesList = new String[0];
+		}
+		
+		String latitude = result_object.getString(Tags.LATITUDE);
+		String longitude = result_object.getString(Tags.LONGITUDE);
+		
+		String notifications = result_object.getString(Tags.GET_NOTIFICATION);
+		String photoLink = result_object.getString(Tags.PHOTO_LINK);
+		String seekerRating = result_object.getString(Tags.SEEKER_RATING);
+		String providerRating = result_object.getString(Tags.PROVIDER_RATING);
+		String webPage = result_object.getString(Tags.WEBPAGE);
+		String jobResearchRadius = result_object.getString(Tags.JOB_RESEARCH_RADIUS);
+		
+		info.put(Tags.USER_ID, userId);
+		info.put(Tags.EMAIL, email);
+		info.put(Tags.NAME, name);
+		info.put(Tags.SURNAME, surname);
+		info.put(Tags.GENDER, gender);
+		info.put(Tags.POSTAL_CODE, postalCode);
+		info.put(Tags.CITY, city);
+		info.put(Tags.STREET, street);
+		info.put(Tags.HOUSE, house);
+		info.put(Tags.COUNTRY, country);
+		info.put(Tags.PHONE_CODE, phoneCode);
+		info.put(Tags.PHONE_NUMBER, phoneNumber);
+		info.put(Tags.LATITUDE, latitude);
+		info.put(Tags.LONGITUDE, longitude);
+		info.put(Tags.GET_NOTIFICATION, notifications);
+		info.put(Tags.PHOTO_LINK, photoLink);
+		info.put(Tags.SEEKER_RATING, seekerRating);
+		info.put(Tags.PROVIDER_RATING, providerRating);
+		info.put(Tags.WEBPAGE, webPage);
+		info.put(Tags.JOB_RESEARCH_RADIUS, jobResearchRadius);
+	}
+	
+	public static HashMap<String, String> getUserInfo()
+	{
+		return info;
+	}
+	
+	public static String[] getProfessionsArray()
+	{
+		return professionsList;
+	}
+	
+	public static String[] getUnwantedRolesArray()
+	{
+		return unwantedRolesList;
+	}
+	
+}

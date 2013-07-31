@@ -1,0 +1,100 @@
+package ru.actsystems.job4all.server;
+
+public class Tags {
+
+	public static final String RESULT = "result";
+	
+	public static final String USER_ID = "userId";
+	public static final String EMAIL = "email";
+	public static final String NAME = "name";
+	public static final String SURNAME = "surname";
+	public static final String GENDER = "gender";
+	public static final String POSTAL_CODE = "postalCode";
+	public static final String CITY = "city";
+	public static final String STREET = "street";
+	public static final String HOUSE = "house";
+	public static final String COUNTRY = "country";
+	public static final String PHONE_CODE = "phoneCode";
+	public static final String PHONE_NUMBER = "phoneNumber";
+	public static final String PROFESSIONS = "professions";
+	public static final String UNWANTED_ROLES = "unwantedRoles";
+	public static final String LATITUDE = "latitude";
+	public static final String LONGITUDE = "longitude";
+	public static final String GET_NOTIFICATION = "getNotification";
+	public static final String PHOTO_LINK = "photoLink";
+	public static final String SEEKER_RATING = "seekerRating";
+	public static final String SEEKER_WORK_COUNT = "seekerWorkCount";
+	public static final String PROVIDER_RATING = "providerRating";
+	public static final String PROVIDER_RAITING = "providerRaiting";
+	public static final String PROVIDER_WORK_COUNT = "providerWorkCount";
+	public static final String WEBPAGE = "webpage";
+	public static final String JOB_RESEARCH_RADIUS = "jobResearchRadius";
+	
+	public static final String TITLE = "title";
+	public static final String DESCRIPTION = "description";
+	public static final String START_DATE = "startDate";
+	public static final String TIME_TYPE = "timeType";
+	public static final String START_TIME = "startTime";
+	public static final String PRICE = "price";
+	public static final String CURRENCY = "currency";
+	public static final String PAYMENT_METHOD = "payment_method";
+	public static final String PAYMENTMETHOD = "paymentMethod";
+	public static final String BIDDING = "bidding";
+	public static final String PERSONAL = "personal";
+
+	public static final String LOGIN = "login";
+	public static final String PASSWORD = "password";
+	public static final String REMEMBER = "remember";
+	public static final String ANDROID_DEVICE_TOKEN = "android_device_token";
+
+	public static final String JOB_ID = "jobId";
+	public static final String JOBID = "job_id";
+	public static final String IMAGE = "image";
+	public static final String REPEATE_FLAG = "repeat_flag";
+	
+	public static final String SEEKER_NOTIFICATION = "seekerNotification";
+	public static final String PROVIDER_NOTIFICATION = "providerNotification";
+	
+	public static final String NOTIFICATION_ID = "notificationId";
+	public static final String TEXT = "text";
+	public static final String NOTIFICATION_DATE = "notificationDate";
+	public static final String TYPE = "type";
+	
+	public static final String SEEKER_PHOTO = "seekerPhoto";
+	public static final String RATING = "rating";
+	public static final String WORK_COUNT = "workCount";
+	public static final String WORK_STATUS = "workStatus";
+	
+	public static final String PROVIDER_ID = "providerId";
+	public static final String PROVIDER_INFO = "providerInfo";
+	public static final String PROVIDER_NAME = "providerName";
+	public static final String PROVIDER_SURNAME = "providerSurname";;
+	public static final String PROVIDER_PHOTO = "providerPhoto";
+	public static final String JOB_INFO = "jobInfo";
+	public static final String WORKER_ID_LIST = "workerIdList";
+	public static final String STATUS = "status";
+	public static final String FINISH_DATE = "finishDate";
+	public static final String IS_BIDDING = "isBidding";
+	public static final String CANDIDATES = "candidates";
+	public static final String AREA = "area";
+	
+	public static final String CURRENT_JOB = "currentJob";
+	public static final String HISTORY_JOB = "history";
+	
+	public static final String MARK_FLAG = "mark_flag";
+	public static final String LANGUAGE = "lang";
+	public static final String RATE = "rate";
+	public static final String NOTIFICATION_ID_ = "notification_id";
+	public static final String USER_INFO = "userInfo";
+	public static final String SEEKER_PRICE = "seekerPrice";
+	public static final String BID_PRICE ="bidPrice";
+	public static final String WINNER_COUNT = "winnerCount";
+	
+	public static final String ACCOUNT_ID = "account_id";
+	public static final String ANSWER = "answer";
+	public static final String SEEKER_NAME = "seeker_name";
+	public static final String SEEKER_ID = "seeker_id";
+	public static final String PROVIDERID = "provider_id";
+	
+	public static final String ACCEPTED_JOB_COUNT = "acceptedJobCount";
+} 

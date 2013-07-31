@@ -1,0 +1,86 @@
+package ru.actsystems.job4all.server.response;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ru.actsystems.job4all.server.Tags;
+
+public class GetNotificationResponse {
+
+	private static JSONObject json;
+	
+	private static ArrayList<HashMap<String, String>> providerNotificationList;
+	private static ArrayList<HashMap<String, String>> seekerNotificationList;
+	
+	public static void parse(String response) throws JSONException
+	{
+		json = new JSONObject(response);
+		
+		providerNotificationList = new ArrayList<HashMap<String, String>>();
+		seekerNotificationList = new ArrayList<HashMap<String, String>>();
+		
+		providerNotification();
+		seekerNotification();
+	}
+	
+	private static void providerNotification() throws JSONException
+	{
+		JSONObject result_object = json.getJSONObject(Tags.RESULT);
+		
+		JSONArray result_array = result_object.getJSONArray(Tags.PROVIDER_NOTIFICATION);
+		
+		for(int i=0; i<result_array.length(); i++){
+			JSONObject providerInfo = result_array.getJSONObject(i);
+			
+			String notificationId = providerInfo.getString(Tags.NOTIFICATION_ID_);
+			String type = providerInfo.getString(Tags.TYPE);
+			String seekerName = providerInfo.getString(Tags.SEEKER_NAME);
+			String seeker_id = providerInfo.getString(Tags.SEEKER_ID);
+			String jobId = providerInfo.getString(Tags.JOBID);
+			
+			HashMap<String, String> info = new HashMap<String, String>();
+			info.put(Tags.NOTIFICATION_ID, notificationId);
+			info.put(Tags.TYPE, type);
+			info.put(Tags.SEEKER_NAME, seekerName);
+			info.put(Tags.SEEKER_ID, seeker_id);
+			info.put(Tags.JOB_ID, jobId);
+			
+			providerNotificationList.add(info);
+		}
+		
+	}
+	
+	private static void seekerNotification() throws JSONException
+	{
+		JSONObject result_object = json.getJSONObject(Tags.RESULT);
+		
+		JSONArray result_array = result_object.getJSONArray(Tags.SEEKER_NOTIFICATION);
+		
+		for(int i=0; i<result_array.length(); i++){
+			JSONObject seekerInfo = result_array.getJSONObject(i);
+			
+			String notificationId = seekerInfo.getString(Tags.NOTIFICATION_ID_); 
+			String type = seekerInfo.getString(Tags.TYPE);
+			String jobId = seekerInfo.getString(Tags.JOBID);
+			String provider = seekerInfo.getString(Tags.PROVIDERID);
+			
+			HashMap<String, String> info = new HashMap<String, String>();
+			info.put(Tags.NOTIFICATION_ID, notificationId);
+			info.put(Tags.TYPE, type);
+			info.put(Tags.JOB_ID, jobId);
+			info.put(Tags.PROVIDER_ID, provider);
+		}
+	}
+	
+	public static ArrayList<HashMap<String, String>> getProviderNotificationList(){
+		return providerNotificationList;
+	}
+	
+	public static ArrayList<HashMap<String, String>> seekerNotificationList(){
+		return seekerNotificationList;
+	}
+}

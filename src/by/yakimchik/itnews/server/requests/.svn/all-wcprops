@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests
+END
+GetNotificationRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/GetNotificationRequest.java
+END
+CancelJobRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/CancelJobRequest.java
+END
+EditUserDateRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/EditUserDateRequest.java
+END
+GetJobFullInfoRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/GetJobFullInfoRequest.java
+END
+GetJobListRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/GetJobListRequest.java
+END
+SeekerRateRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/SeekerRateRequest.java
+END
+GetSeekerInfoRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/GetSeekerInfoRequest.java
+END
+FinishJobRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/FinishJobRequest.java
+END
+ProviderJobAnswerRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/ProviderJobAnswerRequest.java
+END
+RejectJobFlagRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/RejectJobFlagRequest.java
+END
+SeekerBidPriceJobRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/SeekerBidPriceJobRequest.java
+END
+OkJobFlagRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/OkJobFlagRequest.java
+END
+GetUserInfoRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/GetUserInfoRequest.java
+END
+CandidatesRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/CandidatesRequest.java
+END
+PasswordRecoveryRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/PasswordRecoveryRequest.java
+END
+BaseRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/BaseRequest.java
+END
+ProviderRateRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/ProviderRateRequest.java
+END
+DeleteNotificationRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/DeleteNotificationRequest.java
+END
+SeekerJobAnswerRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/SeekerJobAnswerRequest.java
+END
+LanguageRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/LanguageRequest.java
+END
+AuthorizationRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/AuthorizationRequest.java
+END
+RegistrationRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/RegistrationRequest.java
+END
+DeleteJobByProviderRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/DeleteJobByProviderRequest.java
+END
+AddNewJobRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/requests/AddNewJobRequest.java
+END

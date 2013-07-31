@@ -1,0 +1,29 @@
+package ru.actsystems.job4all.server.requests;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+
+import ru.actsystems.job4all.server.Tags;
+
+public class OkJobFlagRequest extends BaseRequest{
+
+	private static final String server_url = "/api/job/ok";
+	
+	public OkJobFlagRequest() {
+		super(server_url);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void sendRequest(String jobId) throws IOException, JSONException{
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		params.add(new BasicNameValuePair(Tags.JOB_ID, jobId));
+		
+		this.sendRequest(params);
+	}
+
+}

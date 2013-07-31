@@ -1,0 +1,58 @@
+package ru.actsystems.job4all.server.response;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ru.actsystems.job4all.server.Tags;
+
+public class CandidatesResponse {
+
+	private static JSONObject json;
+	
+	private static ArrayList<HashMap<String, String>> candidatesList;
+	
+	public static void parse(String response) throws JSONException
+	{
+		json = new JSONObject(response);
+		
+		candidatesList = new ArrayList<HashMap<String,String>>();
+		
+		JSONArray result_array = json.getJSONArray(Tags.RESULT);
+		
+		for(int i=0; i<result_array.length(); i++){
+			JSONObject object = result_array.getJSONObject(i);
+			
+			String userId = object.getString(Tags.USER_ID);
+			String seekerPhotoLink = object.getString(Tags.SEEKER_PHOTO);
+			String name = object.getString(Tags.NAME);
+			String surname = object.getString(Tags.SURNAME);
+			String rating = object.getString(Tags.RATING);
+			String workerCount = object.getString(Tags.WORK_COUNT);
+			String workStatus = object.getString(Tags.WORK_STATUS);
+			String mark_flag = object.getString(Tags.MARK_FLAG);
+			
+			HashMap<String, String> map = new HashMap<String, String>();
+			
+			map.put(Tags.USER_ID, userId);
+			map.put(Tags.SEEKER_PHOTO, seekerPhotoLink);
+			map.put(Tags.NAME, name);
+			map.put(Tags.SURNAME, surname);
+			map.put(Tags.RATING, rating);
+			map.put(Tags.WORK_COUNT, workerCount);
+			map.put(Tags.WORK_STATUS, workStatus);
+			map.put(Tags.MARK_FLAG, mark_flag);
+			
+			candidatesList.add(map);
+		}
+
+	}
+	
+	public static ArrayList<HashMap<String, String>> getCandidatesArrayList()
+	{
+		return candidatesList;
+	}
+}

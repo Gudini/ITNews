@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server
+END
+ConnectionToServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/ConnectionToServer.java
+END
+Tags.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/Tags.java
+END
+CookieStorage.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/CookieStorage.java
+END
+TestCookie.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/TestCookie.java
+END
+StatusesConstant.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/StatusesConstant.java
+END
+HttpClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/goradel/!svn/ver/8688/Mobile/Android/Job4All/Job4All/src/ru/actsystems/job4all/server/HttpClient.java
+END

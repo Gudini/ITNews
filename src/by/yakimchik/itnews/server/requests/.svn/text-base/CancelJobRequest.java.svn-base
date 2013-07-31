@@ -1,0 +1,27 @@
+package ru.actsystems.job4all.server.requests;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+
+import ru.actsystems.job4all.server.Tags;
+
+public class CancelJobRequest extends BaseRequest{
+
+	private static final String server_url = "/api/job/delete";
+	
+	public CancelJobRequest(){
+		super(server_url);
+	}
+	
+	public void sendRequest(String jobId) throws IOException, JSONException{
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		params.add(new BasicNameValuePair(Tags.JOB_ID, jobId));
+		
+		this.sendRequest(params);
+	}
+}

@@ -1,0 +1,21 @@
+package ru.actsystems.job4all.server.requests;
+
+import java.io.IOException;
+
+import org.json.JSONException;
+
+public class GetJobListRequest extends BaseRequest{
+
+	public final static String server_provider_url = "/api/job/providerJobs";
+	public final static String server_seeker_url = "/api/job/seekerJobs";
+	
+	public GetJobListRequest(String server_url) {
+		super(server_url);
+	}
+
+	public void sendRequest() throws IOException, JSONException
+	{
+		super.sendRequest(null);
+	}
+	
+}

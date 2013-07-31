@@ -1,0 +1,65 @@
+package ru.actsystems.job4all.server.requests;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.ByteArrayBody;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+
+import ru.actsystems.job4all.server.Tags;
+
+public class EditUserDateRequest extends BaseRequest{
+
+	private static final String server_url = "/api/account/edit";
+	
+	public EditUserDateRequest() {
+		super(server_url);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void sendRequest(String[] professionsArray, String[] unwantedRolesArray, ByteArrayBody image, String... params) throws IOException, JSONException
+	{
+		reqEntity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
+		
+		reqEntity.addPart(Tags.NAME, new StringBody(params[0]));
+		reqEntity.addPart(Tags.SURNAME, new StringBody(params[1]));
+		reqEntity.addPart(Tags.POSTAL_CODE, new StringBody(params[2]));
+		reqEntity.addPart(Tags.CITY, new StringBody(params[3]));
+		reqEntity.addPart(Tags.STREET, new StringBody(params[4]));
+		reqEntity.addPart(Tags.HOUSE, new StringBody(params[5]));
+		reqEntity.addPart(Tags.COUNTRY, new StringBody(params[6]));
+		reqEntity.addPart(Tags.PHONE_CODE, new StringBody(params[7]));
+		reqEntity.addPart(Tags.PHONE_NUMBER, new StringBody(params[8]));
+		
+		for(int i=0; i<professionsArray.length; i++)
+		{
+			reqEntity.addPart("professions["+i+"]", new StringBody(professionsArray[i]));
+		}
+		
+		for(int i=0; i<unwantedRolesArray.length; i++)
+		{
+			reqEntity.addPart("unwantedRoles["+i+"]", new StringBody(unwantedRolesArray[i]));
+		}
+		
+		reqEntity.addPart(Tags.LATITUDE, new StringBody(params[9]));
+		reqEntity.addPart(Tags.LANGUAGE, new StringBody(params[10]));
+		reqEntity.addPart(Tags.GET_NOTIFICATION, new StringBody(params[11]));
+		reqEntity.addPart(Tags.JOB_RESEARCH_RADIUS, new StringBody(params[12]));
+		reqEntity.addPart(Tags.IMAGE, image);
+		reqEntity.addPart(Tags.REPEATE_FLAG, new StringBody(params[13]));	
+		//reqEntity.addPart(Tags.WEBPAGE, new StringBody(params[14]));
+		
+		
+		this.sendRequest(null);
+		
+		reqEntity = null;
+	}
+
+}

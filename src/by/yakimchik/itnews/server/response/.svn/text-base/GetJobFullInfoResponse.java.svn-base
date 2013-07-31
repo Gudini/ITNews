@@ -1,0 +1,158 @@
+package ru.actsystems.job4all.server.response;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ru.actsystems.job4all.server.Tags;
+
+
+/**
+ *
+ * @author Sergei Yakimchik
+ * @version 1.0
+ */
+
+public class GetJobFullInfoResponse {
+	
+	private static JSONObject json;
+	
+	private static HashMap<String, String> providerInfoMap;
+	private static HashMap<String, String> jobInfoMap;
+	
+	private static String[] professionsList;
+	private static String[] unwantedRolesList;
+	
+	public static void parse(String response) throws JSONException
+	{
+		providerInfoMap = new HashMap<String, String>();
+		jobInfoMap = new HashMap<String, String>();
+		
+		if(response.contains("Notice"))
+			response = response.replaceAll(".*\n", "");
+		
+		json = new JSONObject(response);
+		
+		parseProvirInfo();
+		parseJobInfo();
+	}
+	
+	private static void parseProvirInfo() throws JSONException
+	{
+		JSONObject result_object = json.getJSONObject(Tags.RESULT);
+		
+		JSONObject providerInfoObject = result_object.getJSONObject(Tags.PROVIDER_INFO);
+		
+		String providerId = providerInfoObject.getString(Tags.PROVIDER_ID);
+		String mark_flag = providerInfoObject.getString(Tags.MARK_FLAG);
+		String providerName = providerInfoObject.getString(Tags.PROVIDER_NAME);
+		String providerSurname = providerInfoObject.getString(Tags.PROVIDER_SURNAME);
+		String providerRating = providerInfoObject.getString(Tags.PROVIDER_RAITING); //warning
+		String providerWorkCount = providerInfoObject.getString(Tags.PROVIDER_WORK_COUNT);
+		String providerPhotoUrl = providerInfoObject.getString(Tags.PROVIDER_PHOTO);
+		
+		String street = providerInfoObject.getString(Tags.STREET);
+		String house = providerInfoObject.getString(Tags.HOUSE);
+		String city = providerInfoObject.getString(Tags.CITY);
+		String country = providerInfoObject.getString(Tags.COUNTRY);
+		String postalCode = providerInfoObject.getString(Tags.POSTAL_CODE);
+		String phoneCode = providerInfoObject.getString(Tags.PHONE_CODE);
+		String phoneNumber = providerInfoObject.getString(Tags.PHONE_NUMBER);
+		
+		providerInfoMap.put(Tags.PROVIDER_ID, providerId);
+		providerInfoMap.put(Tags.MARK_FLAG, mark_flag);
+		providerInfoMap.put(Tags.PROVIDER_NAME, providerName);
+		providerInfoMap.put(Tags.PROVIDER_SURNAME, providerSurname);
+		providerInfoMap.put(Tags.PROVIDER_RATING, providerRating);
+		providerInfoMap.put(Tags.PROVIDER_WORK_COUNT, providerWorkCount);
+		providerInfoMap.put(Tags.PROVIDER_PHOTO, providerPhotoUrl);
+		
+		providerInfoMap.put(Tags.STREET, street);
+		providerInfoMap.put(Tags.HOUSE, house);
+		providerInfoMap.put(Tags.CITY, city);
+		providerInfoMap.put(Tags.COUNTRY, country);
+		providerInfoMap.put(Tags.POSTAL_CODE, postalCode);
+		providerInfoMap.put(Tags.PHONE_CODE, phoneCode);
+		providerInfoMap.put(Tags.PHONE_NUMBER, phoneNumber);
+	}
+	
+	private static void parseJobInfo() throws JSONException
+	{
+		JSONObject result_object = json.getJSONObject(Tags.RESULT);
+		
+		JSONObject jobInfoObject = result_object.getJSONObject(Tags.JOB_INFO);
+		
+		String workerIdList = jobInfoObject.getString(Tags.WORKER_ID_LIST);
+		String status = jobInfoObject.getString(Tags.STATUS);
+		String title = jobInfoObject.getString(Tags.TITLE);
+		String description = jobInfoObject.getString(Tags.DESCRIPTION);
+		String startDate = jobInfoObject.getString(Tags.START_DATE);
+		String startTime = jobInfoObject.getString(Tags.START_TIME);
+		String finishDate = jobInfoObject.getString(Tags.FINISH_DATE);
+		String timeType = jobInfoObject.getString(Tags.TIME_TYPE);
+		String price = jobInfoObject.getString(Tags.PRICE);
+		String currency = jobInfoObject.getString(Tags.CURRENCY);
+		String paymentMethod = jobInfoObject.getString(Tags.PAYMENTMETHOD);
+		String isBidding = jobInfoObject.getString(Tags.IS_BIDDING);
+		String street = jobInfoObject.getString(Tags.STREET);
+		String house = jobInfoObject.getString(Tags.HOUSE);
+		String city = jobInfoObject.getString(Tags.CITY);
+		String postalCode = jobInfoObject.getString(Tags.POSTAL_CODE);
+		String latitude = jobInfoObject.getString(Tags.LATITUDE);
+		String longitude = jobInfoObject.getString(Tags.LONGITUDE);
+		String candidates = jobInfoObject.getString(Tags.CANDIDATES);
+		String winnerCount = jobInfoObject.getString(Tags.WINNER_COUNT);
+		
+		JSONArray professions_array = jobInfoObject.getJSONArray(Tags.PROFESSIONS);
+		JSONArray unwantedRoles_array = jobInfoObject.getJSONArray(Tags.AREA);		
+		
+		professionsList = professions_array.toString().replace("[", "").replace("]", "").split(",");
+		unwantedRolesList = unwantedRoles_array.toString().replace("[", "").replace("]", "").split(",");
+		
+		jobInfoMap.put(Tags.WORKER_ID_LIST, workerIdList);
+		jobInfoMap.put(Tags.STATUS, status);
+		jobInfoMap.put(Tags.TITLE, title);
+		jobInfoMap.put(Tags.DESCRIPTION, description);
+		jobInfoMap.put(Tags.START_DATE, startDate);
+		jobInfoMap.put(Tags.START_TIME, startTime);
+		jobInfoMap.put(Tags.FINISH_DATE, finishDate);
+		jobInfoMap.put(Tags.TIME_TYPE, timeType);
+		jobInfoMap.put(Tags.PRICE, price);
+		jobInfoMap.put(Tags.CURRENCY, currency);
+		jobInfoMap.put(Tags.PAYMENT_METHOD, paymentMethod);
+		jobInfoMap.put(Tags.IS_BIDDING, isBidding);
+		jobInfoMap.put(Tags.STREET, street);
+		jobInfoMap.put(Tags.HOUSE, house);
+		jobInfoMap.put(Tags.CITY, city);
+		jobInfoMap.put(Tags.POSTAL_CODE, postalCode);
+		jobInfoMap.put(Tags.LATITUDE, latitude);
+		jobInfoMap.put(Tags.LONGITUDE, longitude);
+		jobInfoMap.put(Tags.CANDIDATES, candidates);
+		jobInfoMap.put(Tags.WINNER_COUNT, winnerCount);
+		
+	}
+	
+	public static HashMap<String, String> getProviderInfo()
+	{
+		return providerInfoMap;
+	}
+	
+	public static HashMap<String, String> getJobInfo()
+	{
+		return jobInfoMap;
+	}
+	
+	public static String[] getProfessionsArray()
+	{
+		return professionsList;
+	}
+	
+	public static String[] getUnwantedRolesArray()
+	{
+		return unwantedRolesList;
+	}
+
+}

@@ -1,0 +1,20 @@
+package ru.actsystems.job4all.server;
+
+public final class StatusesConstant {
+
+	//success
+	public static final int PassedStatus = 200;
+	
+	//custom error message
+	public static final int ErrorStatus = 400;
+	
+	//session is expired
+	public static final int ExpiredStatus = 401;
+	
+	//no search coordinate on map
+	public static final int ErrorMapStatus = 404;
+	
+	//if email not found in database
+	public static final int EmailNotFound = 403;
+	
+}

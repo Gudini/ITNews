@@ -1,0 +1,57 @@
+package ru.actsystems.job4all.server.requests;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+
+import ru.actsystems.job4all.server.Tags;
+
+public class AddNewJobRequest extends BaseRequest{
+
+	private static final String server_url = "/api/job/add";
+	
+	public AddNewJobRequest() {
+		super(server_url);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void sendRequest(String[] professionsArray, String[] areaArray, String... params) throws IOException, JSONException
+	{
+		List<NameValuePair> list_params = new ArrayList<NameValuePair>();
+		list_params.add(new BasicNameValuePair(Tags.TITLE, params[0]));
+		list_params.add(new BasicNameValuePair(Tags.DESCRIPTION, params[1]));
+		list_params.add(new BasicNameValuePair(Tags.START_DATE, params[2]));
+		list_params.add(new BasicNameValuePair(Tags.TIME_TYPE, params[3]));
+		list_params.add(new BasicNameValuePair(Tags.START_TIME, params[4]));
+		list_params.add(new BasicNameValuePair(Tags.PRICE, params[5]));
+		list_params.add(new BasicNameValuePair(Tags.CURRENCY, params[6]));
+		list_params.add(new BasicNameValuePair(Tags.PAYMENT_METHOD, params[7]));
+		list_params.add(new BasicNameValuePair(Tags.COUNTRY, params[8]));
+		list_params.add(new BasicNameValuePair(Tags.STREET, params[9]));
+		list_params.add(new BasicNameValuePair(Tags.HOUSE, params[10]));
+		list_params.add(new BasicNameValuePair(Tags.CITY, params[11]));
+		list_params.add(new BasicNameValuePair(Tags.POSTAL_CODE, params[12]));
+		
+		for(int i=0; i<professionsArray.length; i++)
+		{
+			list_params.add(new BasicNameValuePair("professions["+i+"]", professionsArray[i]));
+		}
+		
+		for(int i=0; i<areaArray.length; i++)
+		{
+			list_params.add(new BasicNameValuePair("area["+i+"]", areaArray[i]));
+		}
+		
+		list_params.add(new BasicNameValuePair(Tags.BIDDING, params[13]));
+		list_params.add(new BasicNameValuePair(Tags.PERSONAL, params[14]));
+		list_params.add(new BasicNameValuePair(Tags.REPEATE_FLAG, params[15]));
+		
+		super.sendRequest(list_params);
+	}
+
+}

@@ -1,0 +1,60 @@
+package ru.actsystems.job4all.server.response;
+
+import java.util.HashMap;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ru.actsystems.job4all.server.Tags;
+
+public class GetSeekerInfoResponse {
+
+	private static JSONObject json;
+	
+	private static HashMap<String, String> userInfoMap;
+	
+	public static void parse(String response) throws JSONException
+	{
+		json = new JSONObject(response);
+		
+		userInfoMap = new HashMap<String, String>();
+		
+		JSONObject result_object = json.getJSONObject(Tags.RESULT);
+		
+		JSONObject userInfoObject = result_object.getJSONObject(Tags.USER_INFO);
+		
+		String name = userInfoObject.getString(Tags.NAME);
+		String surname = userInfoObject.getString(Tags.SURNAME);
+		String seekerPhoto = userInfoObject.getString(Tags.SEEKER_PHOTO);
+		String rating = userInfoObject.getString(Tags.RATING);
+		String workCount = userInfoObject.getString(Tags.WORK_COUNT);
+		String title = userInfoObject.getString(Tags.TITLE);
+		String workStatus = userInfoObject.getString(Tags.WORK_STATUS);
+		String city = userInfoObject.getString(Tags.CITY);
+		String postalCode = userInfoObject.getString(Tags.POSTAL_CODE);
+		String seekerPrice = userInfoObject.getString(Tags.SEEKER_PRICE);
+		String currency = userInfoObject.getString(Tags.CURRENCY);
+		String phoneCode = userInfoObject.getString(Tags.PHONE_CODE);
+		String phoneNumber = userInfoObject.getString(Tags.PHONE_NUMBER);
+		String paymentMethod = userInfoObject.getString(Tags.PAYMENTMETHOD);
+		
+		userInfoMap.put(Tags.NAME, name);
+		userInfoMap.put(Tags.SURNAME, surname);
+		userInfoMap.put(Tags.SEEKER_PHOTO, seekerPhoto);
+		userInfoMap.put(Tags.RATING, rating);
+		userInfoMap.put(Tags.WORK_COUNT, workCount);
+		userInfoMap.put(Tags.TITLE, title);
+		userInfoMap.put(Tags.WORK_STATUS, workStatus);
+		userInfoMap.put(Tags.CITY, city);
+		userInfoMap.put(Tags.POSTAL_CODE, postalCode);
+		userInfoMap.put(Tags.SEEKER_PRICE, seekerPrice);
+		userInfoMap.put(Tags.CURRENCY, currency);
+		userInfoMap.put(Tags.PHONE_CODE, phoneCode);
+		userInfoMap.put(Tags.PHONE_NUMBER, phoneNumber);
+		userInfoMap.put(Tags.PAYMENTMETHOD, paymentMethod);
+	}
+	
+	public static HashMap<String, String> getUserInfo(){
+		return userInfoMap;
+	}
+}

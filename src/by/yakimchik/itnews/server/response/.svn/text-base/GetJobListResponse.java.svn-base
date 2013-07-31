@@ -1,0 +1,93 @@
+package ru.actsystems.job4all.server.response;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ru.actsystems.job4all.server.Tags;
+
+/**
+ * 
+ * @author Sergei Yakimchik
+ * @version 1.0
+ */
+
+public class GetJobListResponse {
+	
+	private static JSONObject json;
+	
+	private static ArrayList<HashMap<String, String>> currentJobsList;
+	private static ArrayList<HashMap<String, String>> historyJobsList;
+	
+	private static String countAcceptedJobs;
+	
+	public static void parse(String response) throws JSONException
+	{
+		currentJobsList = new ArrayList<HashMap<String, String>>();
+		historyJobsList = new ArrayList<HashMap<String, String>>();
+		
+		countAcceptedJobs = new String();
+		
+		json = new JSONObject(response);
+		
+		parseContentTag(Tags.CURRENT_JOB, true);
+		parseContentTag(Tags.HISTORY_JOB, false);
+		
+		JSONObject result_object = json.getJSONObject(Tags.RESULT);
+		
+		countAcceptedJobs = result_object.getString(Tags.ACCEPTED_JOB_COUNT);
+	}
+	
+	private static void parseContentTag(String parentTag, boolean flag) throws JSONException
+	{
+		JSONObject result_object = json.getJSONObject(Tags.RESULT);
+		
+		JSONArray jobs = result_object.getJSONArray(parentTag);
+		
+		for(int i=0; i<jobs.length(); i++)
+		{
+			JSONObject object = jobs.getJSONObject(i);
+			
+			String jobID = object.getString(Tags.JOB_ID);
+			String title = object.getString(Tags.TITLE);
+			String startDate = object.getString(Tags.START_DATE);
+			String startTime = object.getString(Tags.START_TIME);
+			String finishDate = object.getString(Tags.FINISH_DATE);
+			String status = object.getString(Tags.STATUS);
+			String timeType = object.getString(Tags.TIME_TYPE);
+			
+			HashMap<String, String> map = new HashMap<String, String>();
+			
+			map.put(Tags.JOB_ID, jobID);
+			map.put(Tags.TITLE, title);
+			map.put(Tags.START_DATE, startDate);
+			map.put(Tags.START_TIME, startTime);
+			map.put(Tags.FINISH_DATE, finishDate);
+			map.put(Tags.STATUS, status);
+			map.put(Tags.TIME_TYPE, timeType);
+			
+			if(flag)
+				currentJobsList.add(map);
+			else
+				historyJobsList.add(map);
+			
+		}
+	}
+	
+	public static ArrayList<HashMap<String, String>> getCurrentJobsList()
+	{
+		return currentJobsList;
+	}
+	
+	public static ArrayList<HashMap<String, String>> getHistoryJobsList()
+	{
+		return historyJobsList;
+	}
+
+	public static String getCountAcceptedJobs() {
+		return countAcceptedJobs;
+	}
+}

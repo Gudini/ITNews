@@ -1,0 +1,21 @@
+package ru.actsystems.job4all.server.requests;
+
+import java.io.IOException;
+
+import org.json.JSONException;
+
+public class GetUserInfoRequest extends BaseRequest{
+
+	private static final String server_url = "/api/account/info";
+	
+	public GetUserInfoRequest() {
+		super(server_url);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void sendRequest() throws IOException, JSONException
+	{
+		super.sendRequest(null);
+	}
+
+}

@@ -1,0 +1,38 @@
+package ru.actsystems.job4all.server.requests;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+
+import ru.actsystems.job4all.server.Tags;
+
+public class ProviderJobAnswerRequest extends BaseRequest{
+
+	private static final String server_url = "/api/job/providerAnswer";
+	
+	public ProviderJobAnswerRequest(){
+		super(server_url);
+	}
+	
+	/**
+	 * 
+	 * @param job_id
+	 * @param account_id
+	 * @param answer 0-reject, 1-accept
+	 * @throws IOException
+	 * @throws JSONException
+	 */
+	public void sendRequest(String job_id, String account_id, String answer) throws IOException, JSONException{
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		params.add(new BasicNameValuePair(Tags.JOBID, job_id));
+		params.add(new BasicNameValuePair(Tags.ACCOUNT_ID, account_id));
+		params.add(new BasicNameValuePair(Tags.ANSWER, answer));
+		
+		super.sendRequest(params);
+	}
+	
+}

@@ -1,0 +1,18 @@
+package ru.actsystems.job4all.server.requests;
+
+import java.io.IOException;
+
+import org.json.JSONException;
+
+public class GetNotificationRequest extends BaseRequest{
+
+	private static final String server_url = "/api/notification/get";
+	
+	public GetNotificationRequest(){
+		super(server_url);
+	}
+	
+	public void sendRequest() throws IOException, JSONException{
+		super.sendRequest(null);
+	}
+}

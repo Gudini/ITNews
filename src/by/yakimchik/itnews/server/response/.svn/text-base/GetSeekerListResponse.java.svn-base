@@ -1,0 +1,51 @@
+package ru.actsystems.job4all.server.response;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ru.actsystems.job4all.server.Tags;
+
+
+/**
+ *
+ * @author Sergei Yakimchik
+ * @version 1.0
+ */
+
+public class GetSeekerListResponse {
+	
+	public static HashMap<String, String> seekerList;
+	
+	public static void parse(String response) throws JSONException
+	{
+		seekerList = new HashMap<String, String>();
+	
+		JSONObject object = new JSONObject(response);
+		
+		String userId = object.getString(Tags.USER_ID);
+		String seekerPhoto = object.getString(Tags.SEEKER_PHOTO);
+		String name = object.getString(Tags.NAME);
+		String surname = object.getString(Tags.SURNAME);
+		String rating = object.getString(Tags.RATING);
+		String workCount = object.getString(Tags.WORK_COUNT);
+		String workStatus = object.getString(Tags.WORK_STATUS);
+		
+		seekerList.put(Tags.USER_ID, userId);
+		seekerList.put(Tags.SEEKER_PHOTO, seekerPhoto);
+		seekerList.put(Tags.NAME, name);
+		seekerList.put(Tags.SURNAME, surname);
+		seekerList.put(Tags.RATING, rating);
+		seekerList.put(Tags.WORK_COUNT, workCount);
+		seekerList.put(Tags.WORK_STATUS, workStatus);
+	}
+	
+	public static HashMap<String, String> getSeekerList()
+	{
+		return seekerList;
+	}
+
+}

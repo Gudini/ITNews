@@ -1,0 +1,29 @@
+package ru.actsystems.job4all.server.requests;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+
+import ru.actsystems.job4all.server.Tags;
+
+public class DeleteNotificationRequest extends BaseRequest{
+
+	private static final String server_url = "/api/notification/delete";
+	
+	public DeleteNotificationRequest() {
+		super(server_url);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void sendRequest(String notificationId) throws IOException, JSONException{
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		params.add(new BasicNameValuePair(Tags.NOTIFICATION_ID_, notificationId));
+		
+		this.sendRequest(params);
+	}
+
+}
