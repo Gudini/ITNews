@@ -1,7 +1,7 @@
 ﻿# ITNews 1.0
 > <a href="readme.md">English description</a> | Описание на русском
 
-Download: <a href="http://ionden.com/a/plugins/ion.imageSlider/ion.imageSlider-1.6.zip">ion.imageSlider-1.6.zip</a>
+Download: <a href="https://github.com/Gudini/ITNews/archive/master.zip">ion.imageSlider-1.6.zip</a>
 
 <b>Author and developer:</b> <i>Sergei Yakimchik</i>
 
